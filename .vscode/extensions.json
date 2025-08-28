@@ -1,0 +1,15 @@
+{
+  "recommendations": [
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "charliermarsh.ruff",
+    "ms-toolsai.jupyter",
+    "ms-azuretools.vscode-docker",
+    "hashicorp.terraform",
+    "redhat.vscode-yaml",
+    "github.vscode-pull-request-github",
+    "ms-vscode-remote.remote-containers",
+    "ms-kubernetes-tools.vscode-kubernetes-tools",
+    "tim-koehler.helm-intellisense"
+  ]
+}
