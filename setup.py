@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="deepsweepai",
-    version="0.1.0",
+    version="0.2.0",
     author="Brad McEvilly",
     author_email="brad@deepsweep.ai",
     description="AI agent security scanner - find vulnerabilities before they cost you millions",

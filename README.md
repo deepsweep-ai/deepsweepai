@@ -2,6 +2,9 @@
 
 **Find critical vulnerabilities in your AI agents before they cost you millions.**
 
+[![Discord](https://img.shields.io/badge/Discord-Join%20Community-7289DA)](https://discord.gg/SdXZp4J47n)
+[![GitHub](https://img.shields.io/badge/GitHub-Star%20Project-181717)](https://github.com/deepsweep-ai/deepsweepai)
+
 DeepSweep AI is a lightweight, open-source security scanner for AI agents. It runs automated tests to detect prompt injections, hallucinations, data leakage, and logical inconsistencies in any AI agent with an API endpoint.
 
 ## Why You Need This
