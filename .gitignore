@@ -188,6 +188,21 @@ cython_debug/
 #  you could uncomment the following to ignore the entire vscode folder
 # .vscode/
 
+# IDE/editor files
+.idea/
+.vscode/
+*.iml
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Python virtualenv (if you mix Python tooling)
+venv/
+__pycache__/
+*.pyc
+
+
 # Ruff stuff:
 .ruff_cache/
 

@@ -1,4 +1,4 @@
-# deepsweepai (DeepSweep AI)
+# DeepSweep AI
 
 **Find critical vulnerabilities in your AI agents before they cost you millions.**
 
