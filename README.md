@@ -2,7 +2,7 @@
 
 [![PyPI version](https://img.shields.io/pypi/v/deepsweepai.svg)](https://pypi.org/project/deepsweepai/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Discord](https://img.shields.io/discord/YOUR_SERVER_ID?color=7289da&logo=discord&logoColor=white)](https://discord.gg/SdXZp4J47n)
+[![Discord](https://img.shields.io/badge/Discord-Join%20Community-7289DA)](https://discord.gg/Db5Zth2RKR)
 
 **Developer-first AI agent security testing** — Find vulnerabilities before they reach production.
 
@@ -170,7 +170,7 @@ For complete details, see our [Privacy Policy](https://deepsweep.ai/privacy).
 
 ## Community
 
-- **Discord:** [Join our community](https://discord.gg/SdXZp4J47n) for support and discussions
+- **Discord:** [Join our community](https://discord.gg/Db5Zth2RKR) for support and discussions
 - **Discussions:** [GitHub Discussions](https://github.com/deepsweep-ai/deepsweepai/discussions) for feature requests
 - **Issues:** [GitHub Issues](https://github.com/deepsweep-ai/deepsweepai/issues) for bug reports
 

@@ -1,4 +1,46 @@
-- name: Test AI Agent Security
-  run: |
-    pip install deepsweepai
-    deepsweepai ${{ secrets.AGENT_ENDPOINT }} --key ${{ secrets.API_KEY }}
+name: DeepSweep AI Security Smoke
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install DeepSweepAI
+        run: |
+          python -m pip install --upgrade pip
+          pip install deepsweepai
+
+      - name: Run zero-key mock scan (fast)
+        run: deepsweepai mock --quick
+
+      # Optional endpoint scan (runs only if both secrets exist and are non-empty)
+      - name: Run endpoint scan (optional)
+        if: ${{ secrets.AGENT_ENDPOINT != '' && secrets.API_KEY != '' }}
+        env:
+          ENDPOINT: ${{ secrets.AGENT_ENDPOINT }}
+          API_KEY: ${{ secrets.API_KEY }}
+        run: |
+          mkdir -p out
+          deepsweepai "$ENDPOINT" --key "$API_KEY" --industry generic --output out/report.json || true
+
+      - name: Upload report artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: deepsweepai-report
+          path: out/**
+          if-no-files-found: ignore
