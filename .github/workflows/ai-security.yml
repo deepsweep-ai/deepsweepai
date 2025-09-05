@@ -25,7 +25,7 @@ jobs:
           pip install deepsweepai
 
       - name: Run zero-key mock scan (fast)
-        run: deepsweepai mock --quick
+        run: deepsweepai --provider mock --quick
 
       # Optional endpoint scan (runs only if both vars exist and are non-empty)
       - name: Run endpoint scan (optional)
