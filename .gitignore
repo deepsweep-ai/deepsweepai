@@ -54,6 +54,7 @@ cover/
 # Ignore everything in tests output (but keep tests/ dir itself)
 tests/__pycache__/
 tests/tmp/
+license-table-object.json
 
 # Translations
 *.mo

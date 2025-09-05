@@ -27,12 +27,12 @@ jobs:
       - name: Run zero-key mock scan (fast)
         run: deepsweepai mock --quick
 
-      # Optional endpoint scan (runs only if both secrets exist and are non-empty)
+      # Optional endpoint scan (runs only if both vars exist and are non-empty)
       - name: Run endpoint scan (optional)
-        if: ${{ secrets.AGENT_ENDPOINT != '' && secrets.API_KEY != '' }}
+        if: ${{ vars.AGENT_ENDPOINT != '' && vars.API_KEY != '' }}
         env:
-          ENDPOINT: ${{ secrets.AGENT_ENDPOINT }}
-          API_KEY: ${{ secrets.API_KEY }}
+          ENDPOINT: ${{ vars.AGENT_ENDPOINT }}
+          API_KEY: ${{ vars.API_KEY }}
         run: |
           mkdir -p out
           deepsweepai "$ENDPOINT" --key "$API_KEY" --industry generic --output out/report.json || true
