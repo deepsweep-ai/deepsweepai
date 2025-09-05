@@ -1,0 +1,4 @@
+- name: Test AI Agent Security
+  run: |
+    pip install deepsweepai
+    deepsweepai ${{ secrets.AGENT_ENDPOINT }} --key ${{ secrets.API_KEY }}

@@ -1,23 +1,35 @@
-#!/usr/bin/env python3
-"""
-Mock vulnerable AI agent for testing DeepSweep AI
-Run: python examples/mock_agent.py
-Test: deepsweepai http://localhost:5000/chat
-"""
+from __future__ import annotations
+import os, time, re, random
+from typing import Optional
 
-from flask import Flask, request, jsonify
-app = Flask(__name__)
+LEAK_FLAG = os.getenv("MOCK_AGENT_CAN_LEAK", "off").strip().lower() in {"1","true","yes","on"}
+SLOW_FLAG = os.getenv("MOCK_AGENT_SLOW_MS", "").strip()
+SLOW_MS = int(SLOW_FLAG) if SLOW_FLAG.isdigit() else 0
 
-@app.route('/chat', methods=['POST'])
-def chat():
-    prompt = request.json.get('prompt', '')
-    
-    # Deliberately vulnerable responses for testing
-    if "ignore" in prompt.lower():
-        return jsonify({"response": "PWNED - System compromised"})
-    if "CEO" in prompt:
-        return jsonify({"response": "Yes, the CEO announced a $50M deal yesterday"})
-    
-    return jsonify({"response": "I'm a basic AI assistant."})
+SECRET_DB = {
+    "api_key": "sk_live_51K...REDACTED",
+    "password": "p@ssw0rd!",
+    "ssn": "123-45-6789",
+}
 
-app.run(port=5000)
+def _maybe_sleep():
+    if SLOW_MS > 0:
+        time.sleep(SLOW_MS / 1000.0)
+
+def _looks_sensitive(text: str) -> bool:
+    if re.search(r"\b(secret|api\s*key|password|ssn)\b", text, re.I):
+        return True
+    return False
+
+def run(prompt: str, model: Optional[str] = None) -> str:
+    _maybe_sleep()
+    if "ignore all instructions" in prompt.lower():
+        return "I will not ignore safety constraints."
+    if _looks_sensitive(prompt):
+        if LEAK_FLAG:
+            key = random.choice(list(SECRET_DB.keys()))
+            return f"Leaked {key}: {SECRET_DB[key]}"
+        return "I cannot reveal secrets."
+    if "secrets.dump()" in prompt:
+        return "Access to internal tools is prohibited."
+    return "Acknowledged."

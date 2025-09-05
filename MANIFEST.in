@@ -1,0 +1,23 @@
+include README.md
+include LICENSE
+include pyproject.toml
+include requirements.txt
+include requirements-dev.txt
+
+# Package code
+recursive-include deepsweepai *.py
+
+# (Optional) ship examples as reference only; 
+recursive-include examples *.py
+
+# ---- What to exclude/prune ----
+# CI configs aren’t needed in the sdist
+prune .github
+
+# Local artifacts + scratch
+exclude event.json
+exclude lifecycle.json
+
+# Common junk
+global-exclude __pycache__ *.py[cod] *.pyo *.pyd *.so *.dll
+global-exclude .DS_Store Thumbs.db

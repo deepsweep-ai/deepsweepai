@@ -51,6 +51,10 @@ coverage.xml
 .pytest_cache/
 cover/
 
+# Ignore everything in tests output (but keep tests/ dir itself)
+tests/__pycache__/
+tests/tmp/
+
 # Translations
 *.mo
 *.pot
@@ -60,6 +64,7 @@ cover/
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
+*.tmp
 
 # Flask stuff:
 instance/
@@ -136,8 +141,11 @@ celerybeat.pid
 
 # Environments
 .env
+*.env
+.env.*
 .envrc
 .venv
+.venv/
 env/
 venv/
 ENV/
@@ -197,6 +205,10 @@ cython_debug/
 .DS_Store
 Thumbs.db
 
+# Local test artifacts
+event.json
+lifecycle.json
+
 # Python virtualenv (if you mix Python tooling)
 venv/
 __pycache__/
@@ -220,4 +232,10 @@ __pycache__/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
-.DS_Store
+
+# additional
+*.pyc
+*.pyo
+*.pyd
+deepsweep_report_*.json
+deepsweep_report_*.md

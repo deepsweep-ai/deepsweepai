@@ -1,0 +1,7 @@
+requests
+rich>=13.0.0
+pyyaml
+# Optional SDKs (only needed for those providers)
+openai>=1.0.0
+anthropic>=0.30
+google-generativeai>=0.6.0

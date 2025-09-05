@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deepsweepai"
+version = "0.3.3"
+description = "Independent AI agent security testing & compliance platform"
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "DeepSweep AI" }]
+dependencies = ["rich>=13.0.0", "pyyaml", "requests>=2.31.0"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Security",
+]
+
+keywords = ["ai", "security", "llm", "agents", "compliance", "redteam"]
+
+[project.optional-dependencies]
+openai = ["openai>=1.0.0"]
+anthropic = ["anthropic>=0.30"]
+google = ["google-generativeai>=0.6.0"]
+
+[project.scripts]
+deepsweepai = "deepsweepai.cli:main"
+
+[project.urls]
+Homepage = "https://deepsweep.ai"
+Documentation = "https://docs.deepsweep.ai"
+Repository = "https://github.com/deepsweep-ai/deepsweepai"
+"Bug Reports" = "https://github.com/deepsweep-ai/deepsweepai/issues"
+"Terms of Service" = "https://deepsweep.ai/terms"
+"Privacy Policy" = "https://deepsweep.ai/privacy"
+
+# Plugins can register providers here:
+# [project.entry-points."deepsweepai.providers"]
+# myprovider = "mypkg.module:runner"

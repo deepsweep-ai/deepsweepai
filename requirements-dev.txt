@@ -1,0 +1,9 @@
+-r requirements.txt
+pytest
+ruff
+black
+mkdocs-material
+mkdocstrings[python]
+mkdocs-redirects
+mkdocs-minify-plugin
+mkdocs-git-revision-date-localized-plugin
